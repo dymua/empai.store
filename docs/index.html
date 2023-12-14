@@ -693,6 +693,25 @@ empAI надає широкий спектр послуг в різних гал
     </footer>
  -->
     <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+		
+<!--  support chat -->
+    <script>
+      (function(d,t) {
+        var BASE_URL="https://crm.empai.store";
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=BASE_URL+"/packs/js/sdk.js";
+        g.defer = true;
+        g.async = true;
+        s.parentNode.insertBefore(g,s);
+        g.onload=function(){
+          window.chatwootSDK.run({
+            websiteToken: 'LdCtgMDH9PoF4D8pBiqnCwpV',
+            baseUrl: BASE_URL
+          })
+        }
+      })(document,"script");
+    </script>
+		
 
 </body>
 </html>
