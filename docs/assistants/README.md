@@ -1,45 +1,80 @@
 #   Реалізації роботи з Асистентом
 Назва асистента та посилання
 
-Ця гілка реалізацій доступна за адресою https://empai.store/assistants/DIR/SUBDIR/FILES
+
+> Гілки реалізацій доступні за адресою https://empai.store/assistants/DIR/SUBDIR/FILES
+
+
 
 Варіанти реалізації чату на JS для роботи з Асистентом
 
-## chat-app
+## chat-app - простий JS чат
 простий приклад чату без асистента.
 
-Код [/chat-app](chat-app)
+🗂 Код [/chat-app](chat-app)
 
-Перегляд [https://empai.store/assistants/chat-app/index.html](https://empai.store/assistants/chat-app/index.html)
+🌐 Демонстрація [https://empai.store/assistants/chat-app/index.html](https://empai.store/assistants/chat-app/index.html)
 
 
-## cfw
+
+## cfw - CloudFlare Workers
 чат на базі коду  [CloudFlare Workers](https://workers.cloudflare.com)
 
-Код [openai](cfw/openai) [empai](cfw/empai) Перегляд [openai](https://empai.store/assistants/cfw/openai/index.html) [empai](https://empai.store/assistants/cfw/empai/index.html)
+🗂 Код 
+- [openai](cfw/openai)
+- [empai](cfw/empai) 
+
+🌐 Демонстрація 
+- [openai](https://empai.store/assistants/cfw/openai/index.html)
+- [empai](https://empai.store/assistants/cfw/empai/index.html)
 
 
-## jschat
+
+## jschat - JS чат
 чат на базі JS коду  
 
-Код [openai](jschat/openai) [empai](jschat/empai) Перегляд [openai](https://empai.store/assistants/jschat/openai/index.html) [empai](https://empai.store/assistants/jschat/empai/index.html)
+🗂 Код 
+- [openai](jschat/openai)
+- [empai](jschat/empai) 
+
+🌐 Демонстрація    
+- [openai](https://empai.store/assistants/jschat/openai/index.html)   
+- [empai](https://empai.store/assistants/jschat/empai/index.html)
 
 
-## n8n
-чат на базі [Chat Trigger]([Chat Trigger](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger/))  сервіса [N8N empAI Store](https://n8n.empai.store/)
 
-Код [openai](n8n/openai) [empai](n8n/empai) Перегляд [openai](https://empai.store/assistants/n8n/openai/index.html) [empai](https://empai.store/assistants/n8n/empai/index.html)
+## n8n - N8N.empai.store
+чат на базі [Chat Trigger](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger/)  сервіса [N8N empAI Store](https://n8n.empai.store/)
+
+🗂 Код 
+- [openai](n8n/openai)
+- [empai](n8n/empai)
+
+🌐 Демонстрація  
+- [openai](https://empai.store/assistants/n8n/openai/index.html)   
+- [empai](https://empai.store/assistants/n8n/empai/index.html)
 
 
-## bubble
+
+## bubble -  сервіс bubble.io
 реалізація чату на сервісі [bubble](https://bubble.io/)
 
-Код [openai](n8n/bubble) [empai](n8n/bubble) Перегляд [openai](https://empai.store/assistants/bubble/openai.html) [empai](https://empai.store/assistants/bubble.html)
+🗂 Код [openai](n8n/bubble)
 
-використання реалізацій
- - **openia** - реалізація з підключенням напряму до API OpenAI Assistants 
- - **empai** - реалізація з підключенням  REST APi EmpAI.store
+🌐 Демонстрація 
+- [openai](https://empai.store/assistants/bubble/openai.html)
+- [cfwai](https://empai.store/assistants/bubble/cfwai.html)
+- [empai](https://empai.store/assistants/bubble/empai.html)
 
+
+
+> Перелік реалізацій реалізацій
+>  - **openia** - реалізація з підключенням напряму до API OpenAI Assistants 
+>  - **empai** - реалізація з підключенням  REST APi EmpAI.store
+>  - **empai** - реалізація з підключенням  REST APi EmpAI.store
+
+
+## Структура директорій.
 ~~~ tree
 ├── chat-app
 │   ├── index.html
