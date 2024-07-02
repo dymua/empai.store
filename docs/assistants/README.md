@@ -37,8 +37,8 @@
 Код [openai](n8n/bubble) [empai](n8n/bubble) Перегляд [openai](https://empai.store/assistants/bubble/openai.html) [empai](https://empai.store/assistants/bubble.html)
 
 використання реалізацій
-**openia** - реалізація з підключенням напряму до API OpenAI Assistants 
-**empai** - реалізація з підключенням  REST APi EmpAI.store
+ - **openia** - реалізація з підключенням напряму до API OpenAI Assistants 
+ - **empai** - реалізація з підключенням  REST APi EmpAI.store
 
 ~~~ tree
 ├── chat-app
