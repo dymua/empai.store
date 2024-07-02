@@ -1,4 +1,4 @@
-#  Перелік асистентів
+#  Перелік реалізацій асистентів
 Назва асистента та посилання
 
 Варіанти реалізації чату на JS для роботи з Асистентом
@@ -10,6 +10,8 @@
 /**jschat** - чат на базі JS коду  
 
 /**n8n** -- чат на базі [Chat Trigger]([Chat Trigger](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger/))  сервіса [N8N empAI Store](https://n8n.empai.store/)
+
+/**bubble** - реалізація чату на сервісі [bubbleї](https://bubble.io/)
 
 
 ~~~ tree
@@ -31,5 +33,7 @@
 │   ├── chat
 │   │   ├── code.js
 │   │   ├── style.css
+├── bubble
+│   ├── index.html
 
 ~~~
