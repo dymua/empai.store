@@ -1,6 +1,8 @@
 #   Реалізації роботи з Асистентом
 Назва асистента та посилання
 
+Ця гілка реалізацій доступна за адресою
+
 Варіанти реалізації чату на JS для роботи з Асистентом
 
 /**chat-app** - простий приклад чату без асистента.
@@ -11,29 +13,52 @@
 
 /**n8n** -- чат на базі [Chat Trigger]([Chat Trigger](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger/))  сервіса [N8N empAI Store](https://n8n.empai.store/)
 
-/**bubble** - реалізація чату на сервісі [bubbleї](https://bubble.io/)
+/**bubble** - реалізація чату на сервісі [bubble](https://bubble.io/)
 
+використання реалізацій
+**openia** - реалізація з підключенням напряму до API OpenAI Assistants 
+**empai** - реалізація з підключенням  REST APi EmpAI.store
 
 ~~~ tree
 ├── chat-app
 │   ├── index.html
 │   ├── style.css
 ├── cfw
-│   ├── index.html
-│   ├── chat
-│   │   ├── code.js
-│   │   ├── style.css
+│   ├── openia
+│   │   ├── index.html
+│   │   ├── chat
+│   │   │   ├── code.js
+│   │   │   ├── style.css
+│   ├── empai
+│   │   ├── index.html
+│   │   ├── chat
+│   │   │   ├── code.js
+│   │   │   ├── style.css
 ├── jschat
-│   ├── index.html
-│   ├── chat
-│   │   ├── code.js
-│   │   ├── style.css
+│   ├── openia
+│   │   ├── index.html
+│   │   ├── chat
+│   │   │   ├── code.js
+│   │   │   ├── style.css
+│   ├── empai
+│   │   ├── index.html
+│   │   ├── chat
+│   │   │   ├── code.js
+│   │   │   ├── style.css
 ├── n8n
-│   ├── index.html
-│   ├── chat
-│   │   ├── code.js
-│   │   ├── style.css
+│   ├── openia
+│   │   ├── index.html
+│   │   ├── chat
+│   │   │   ├── code.js
+│   │   │   ├── style.css
+│   ├── empai
+│   │   ├── index.html
+│   │   ├── chat
+│   │   │   ├── code.js
+│   │   │   ├── style.css
 ├── bubble
 │   ├── index.html
+│   ├── openia.html
+│   ├── empai.html
 
 ~~~
