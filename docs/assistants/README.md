@@ -8,7 +8,8 @@
 ### chat-app
 простий приклад чату без асистента.
 
-Код chat-app
+Код [/chat-app](chat-app)
+
 Перегляд [https://empai.store/assistants/chat-app/index.html](https://empai.store/assistants/chat-app/index.html)
 
 
