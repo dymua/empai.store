@@ -1,11 +1,16 @@
 #   Реалізації роботи з Асистентом
 Назва асистента та посилання
 
-Ця гілка реалізацій доступна за адресою
+Ця гілка реалізацій доступна за адресою https://empai.store/assistants/DIR/SUBDIR/FILES
 
 Варіанти реалізації чату на JS для роботи з Асистентом
 
-/**chat-app** - простий приклад чату без асистента.
+### chat-app
+простий приклад чату без асистента.
+
+Код chat-app
+Перегляд [https://empai.store/assistants/chat-app/index.html](https://empai.store/assistants/chat-app/index.html)
+
 
 /**cfw** - чат на базі коду  [CloudFlare Workers](https://workers.cloudflare.com)
 
