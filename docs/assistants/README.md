@@ -25,8 +25,8 @@
 - [empai](cfw/empai) 
 
 🌐 Демонстрація 
-- [openai](https://empai.store/assistants/cfw/openai/index.html)
-- [empai](https://empai.store/assistants/cfw/empai/index.html)
+- ❌ [openai](https://empai.store/assistants/cfw/openai/index.html)
+- ❌ [empai](https://empai.store/assistants/cfw/empai/index.html)
 
 
 
@@ -38,8 +38,8 @@
 - [empai](jschat/empai) 
 
 🌐 Демонстрація    
-- [openai](https://empai.store/assistants/jschat/openai/index.html)   
-- [empai](https://empai.store/assistants/jschat/empai/index.html)
+- ❌ [openai](https://empai.store/assistants/jschat/openai/index.html)   
+- ❌ [empai](https://empai.store/assistants/jschat/empai/index.html)
 
 
 
@@ -52,7 +52,7 @@
 
 🌐 Демонстрація  
 - [openai](https://empai.store/assistants/n8n/openai/index.html)   
-- [empai](https://empai.store/assistants/n8n/empai/index.html)
+- ❌ [empai](https://empai.store/assistants/n8n/empai/index.html)
 
 
 
@@ -62,9 +62,9 @@
 🗂 Код [openai](n8n/bubble)
 
 🌐 Демонстрація 
-- [openai](https://empai.store/assistants/bubble/openai.html)
-- [cfwai](https://empai.store/assistants/bubble/cfwai.html)
-- [empai](https://empai.store/assistants/bubble/empai.html)
+- ❌ [openai](https://empai.store/assistants/bubble/openai.html)
+- ❌ [cfwai](https://empai.store/assistants/bubble/cfwai.html)
+- ❌ [empai](https://empai.store/assistants/bubble/empai.html)
 
 
 > [!NOTE]
