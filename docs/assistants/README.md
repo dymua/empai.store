@@ -104,9 +104,7 @@
 ├── n8n
 │   ├── openia
 │   │   ├── index.html
-│   │   ├── chat
-│   │   │   ├── code.js
-│   │   │   ├── style.css
+│   │   ├── fullscreen.html
 │   ├── empai
 │   │   ├── index.html
 │   │   ├── chat
