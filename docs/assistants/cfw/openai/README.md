@@ -2,6 +2,23 @@
   https://ciso-assistant-empai.netlify.app/
 Або запуск index.html із поточної директорії web
 
+
+Відправити запит на воркер можна виконавши запит:
+fetch('https://ciso-assistant.qbb44z7whg.workers.dev/', {
+                        method: 'POST',
+                        headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type'
+            },
+                        body: JSON.stringify({
+                            "prompt": "Привіт!"
+                        })
+                    })
+
+
+
 В акаунті cloudflare, у вкладці  Workers&Pages треба створити:
 1. Settings/Variables/Environment Variables - apiKey (ключ OpenAI) та  assistant_id (ідентифікатор асистента);
 2. Workers&Pages/create/worker.js;
