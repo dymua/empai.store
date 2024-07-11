@@ -25,7 +25,7 @@
 - [empai](cfw/empai) 
 
 🌐 Демонстрація 
-- ❌ [openai](https://empai.store/assistants/cfw/openai/index.html)
+- [openai](https://empai.store/assistants/cfw/openai/index.html)
 - ❌ [empai](https://empai.store/assistants/cfw/empai/index.html)
 
 
