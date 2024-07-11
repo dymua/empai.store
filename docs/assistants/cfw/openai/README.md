@@ -3,6 +3,7 @@
 Або запуск index.html із поточної директорії web
 
 
+Документація: https://developers.cloudflare.com/workers/get-started
 Відправити запит на воркер можна виконавши запит:
 fetch('https://ciso-assistant.qbb44z7whg.workers.dev/', {
                         method: 'POST',
