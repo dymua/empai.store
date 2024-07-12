@@ -172,7 +172,7 @@ function start() {
       })
       .then((message) => {
         mess = JSON.parse(message).answer;
-        // console.log('ANSWER => ', mess);
+        console.log('ANSWER => ', mess);
         reply(mess);
       })
       .catch((error) => {
@@ -194,7 +194,7 @@ function start() {
     replyElement.className = 'flex mb-3';
     replyElement.innerHTML = `
       <div class="bg-gray-200 text-black rounded-lg py-2 px-4 max-w-[70%]">
-        ${message}
+        ${message.replace(/\n/g, '<br>')}
       </div>
     `;
     chatMessages.appendChild(replyElement);
