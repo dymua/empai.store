@@ -38,7 +38,7 @@
 - [empai](jschat/empai) 
 
 🌐 Демонстрація    
-- ❌ [openai](https://empai.store/assistants/jschat/openai/index.html)   
+-  [openai](https://empai.store/assistants/jschat/openai/index.html)   
 - ❌ [empai](https://empai.store/assistants/jschat/empai/index.html)
 
 
