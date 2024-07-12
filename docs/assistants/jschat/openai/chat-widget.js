@@ -111,8 +111,8 @@ function start() {
     replyElement.className = 'flex';
 
     replyElement.innerHTML = `
-      <div class="bg-gray-200 text-black rounded-lg py-2 px-4 max-w-[70%]" style="height: 40px; min-width: 20vw">
-         <span style="font-size:36px" id="wait">.</span>
+      <div class="bg-gray-200 text-black rounded-lg py-2 px-4 max-w-[70%]" style="height: 5vh; min-width: 20vw">
+         <span style="font-size:28px" id="wait">.</span>
       </div>
     `;
     chatMessages.appendChild(replyElement);
