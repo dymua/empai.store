@@ -3,39 +3,39 @@
 <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/style.css" rel="stylesheet" />
 <script type="module">
 	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/chat.bundle.es.js';
-
+/*
 	createChat({
 		webhookUrl: 'https://n8n.empai.store/webhook/ff9622a4-a6ec-4396-b9de-c95bd834c23c/chat'
 	});
  
-
-// 	createChat({
-// 	webhookUrl: 'https://n8n.empai.store/webhook/ff9622a4-a6ec-4396-b9de-c95bd834c23c/chat',
-// 	webhookConfig: {
-// 		method: 'POST',
-// 		headers: {}
-// 	},
-// 	target: '#n8n-chat',
-// 	mode: 'window',
-// 	chatInputKey: 'chatInput',
-// 	chatSessionKey: 'sessionId',
-// 	metadata: {},
-// 	showWelcomeScreen: false,
-// 	defaultLanguage: 'uk',
-// 	initialMessages: [
-// 		'Привіт ШІ ассистент по пошуку трендових відео в YouTube 👋',
-// 		'Вкажи нішу або ключові слова. Я знайду та проаналізую трендові відео на YouTube за останні 7 днів.'
-// 	],
-// 	i18n: {
-// 		uk: {
-// 			title: 'Youtube Trend Finder',
-// 			subtitle: "Пошук популярних та трендових відео в ніші за 7 днів.",
-// 			footer: 'Працюю цілодобово 24/7.',
-// 			getStarted: 'нова бесіда',
-// 			inputPlaceholder: 'Вкажи нішу або ключові слова. Я знайду та проаналізую трендові відео на YouTube за останні 7 днів.',
-// 		},
-// 	},
-// });
+*/
+	createChat({
+	webhookUrl: 'https://n8n.empai.store/webhook/ff9622a4-a6ec-4396-b9de-c95bd834c23c/chat',
+	webhookConfig: {
+		method: 'POST',
+		headers: {}
+	},
+	target: '#n8n-chat',
+	mode: 'window',
+	chatInputKey: 'chatInput',
+	chatSessionKey: 'sessionId',
+	metadata: {},
+	showWelcomeScreen: false,
+	defaultLanguage: 'uk',
+	initialMessages: [
+		'Привіт👋 Я ШІ ассистент по пошуку трендових відео в YouTube ',
+		'Вкажи нішу або ключові слова. Я знайду та проаналізую трендові відео на YouTube за останні 7 днів.'
+	],
+	i18n: {
+		uk: {
+			title: 'Youtube Trend Finder',
+			subtitle: "Пошук популярних та трендових відео в ніші за 7 днів.",
+			footer: 'Працюю цілодобово 24/7.',
+			getStarted: 'нова бесіда',
+			inputPlaceholder: 'Вкажи нішу або ключові слова.',
+		},
+	},
+});
 </script>
 </head>
   
@@ -50,8 +50,14 @@
 <h4>Hosted Chat</h4>
 <p>Працює в  браузера  <a href='fullscreen.html' target="_blank" > в повноекраному режимі</a>.</p>
 
+Використання
+- самостіний аналіз ніш, дослідження
+- пошук трендів для клієнтів
+- знайдені тренди як основа для створення свого матеріалу
+
+	
 Варіанти інтеграції
-- мессенждери
+- мессенждери (Telegra ...)
 - автоматична генерація контенту	
 </body>
   
