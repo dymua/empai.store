@@ -1,5 +1,6 @@
 <html>
 <head>
+<title>Опис утиліти AI YouTube Trend Finder</title>
 <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/style.css" rel="stylesheet" />
 <script type="module">
 	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/chat.bundle.es.js';
@@ -37,63 +38,94 @@
 	},
 });
 </script>
+
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f9f9f9; color: #333; margin: 20px; line-height: 1.6; }
+    h1, h2, h3 { color: #2c3e50; margin-top: 1.5rem; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.2rem; }
+    p { margin: 1rem 0; }
+    ul { margin: 1rem 0; padding-left: 1.5rem; }
+    ul li { margin: 0.5rem 0; }
+    strong { color: #2c3e50; }
+  </style>
 </head>
   
 <body>
-  <h1>AI YouTube Trend Finder Based on Niche</h1>
-  <p>n8n-воркфлоу для контент-кріейторів і маркетологів, яке допомагає швидко знаходити найактуальніші теми у вибраній ніші за допомогою YouTube Data API та GPT-моделі.</p>
+ 
+<h1>Опис утиліти</h1>
+  <p><strong>AI YouTube Trend Finder Based on Niche</strong> — це високоякісний n8n-воркфлоу, розроблений для професійних контент-кріейторів і маркетологів, що прагнуть виявити найактуальніші теми в обраній ніші. Застосовуючи офіційні YouTube Data API та передові моделі штучного інтелекту, він аналізує відео за останні 48 годин, щоб надати глибокі інсайти щодо популярності та залученості аудиторії.</p>
 
-  <h2>Як це працює</h2>
-  <ol>
-    <li><strong>Тригер чат-запиту:</strong> отримання ніші від користувача через чат.</li>
-    <li><strong>AI-агент (GPT):</strong> формує пошукові фрази та підсумовує тренди.</li>
-    <li><strong>YouTube Search:</strong> збір відео за останні 48 годин.</li>
-    <li><strong>Детальні дані:</strong> заголовки, описи, теги, статистика (перегляди, лайки, коментарі) та тривалість.</li>
-    <li><strong>Аналіз:</strong> очищення даних, виявлення повторюваних тем, складання звіту.</li>
-  </ol>
-
-  <h2>Інтерфейси</h2>
+  <h2>Ключові компоненти та технології</h2>
+  <h3>Вхідні дані та тригери</h3>
   <ul>
-    <li><strong>Embeded Chat:</strong> вставка через CDN на ваш сайт.</li>
-    <li><strong>Hosted Chat:</strong> окремий веб-інтерфейс для швидкого запуску.</li>
+    <li><strong>chat_message_received</strong>: отримання запиту від користувача;</li>
+    <li>інтерактивний діалог для уточнення ніші (якщо не вказана).</li>
+  </ul>
+  <h3>AI-агент (GPT-модель)</h3>
+  <ul>
+    <li>формує релевантні пошукові запити;</li>
+    <li>обробляє відповіді YouTube API та виділяє основні теми, теги й метрики (перегляди, лайки, коментарі).</li>
   </ul>
 
-  <h2>Переваги</h2>
+  <h2>Запити до YouTube</h2>
   <ul>
-    <li>Швидкий самостійний аналіз ніш</li>
-    <li>Data-driven рекомендації для клієнтів</li>
-    <li>Інспірація для створення власного контенту</li>
-    <li>SEO-оптимізація ключових слів і тегів</li>
+    <li>пошук відео за ключовими словами, опублікованих протягом останніх двох діб;</li>
+    <li>вибірка базових даних (ID, дата публікації, релевантність).</li>
   </ul>
 
-  <h2>Інтеграції</h2>
+  <h2>Отримання детальної інформації</h2>
   <ul>
-    <li>Telegram, Facebook Messenger — миттєві звіти</li>
-    <li>AI-генерація сценаріїв та описів</li>
-    <li>Slack, Notion, Trello — відправка результатів в CRM/PM</li>
+    <li><strong>Video Snippet</strong>: заголовок, опис, теги;</li>
+    <li><strong>Video Statistics</strong>: кількість переглядів, лайків, коментарів;</li>
+    <li><strong>Content Details</strong>: тривалість (аналітика тільки для відео довжиною від 3:30 хв).</li>
   </ul>
 
-  <h2>Переваги E-E-A-T</h2>
+  <h2>Обробка та аналіз</h2>
   <ul>
-    <li><strong>Expertise:</strong> кращі практики YouTube API та AI-аналітики</li>
-    <li><strong>Experience:</strong> протестовано на сотнях запитів</li>
-    <li><strong>Authoritativeness:</strong> n8n + GPT від OpenAI</li>
-    <li><strong>Trustworthiness:</strong> безпечна обробка даних і конфіденційність</li>
+    <li>очищення й нормалізація метаданих;</li>
+    <li>виявлення повторюваних тем і трендів серед вибірки;</li>
+    <li>складання зведеного звіту з ключовими показниками.</li>
   </ul>
 
-  <h2>Приклад результату для ніші «digital marketing»</h2>
+  <h2>Варіанти роботи інтерфейсу</h2>
+  <h3>Embeded Chat</h3>
+  <p>– інтеграція на вашому сайті через CDN (JS-код чату направляє запити до n8n);</p>
+  <h3>Hosted Chat</h3>
+  <p>– повноекранний веб-інтерфейс для швидкого запуску аналітики без налаштувань на стороні клієнта.</p>
+
+  <h2>Використання та користь</h2>
   <ul>
-    <li><strong>Теми:</strong> psychological marketing, conversion triggers</li>
-    <li><strong>Теги:</strong> SEO, social proof, email funnels</li>
-    <li><strong>Відео:</strong> перегляди >200 000, високий % лайків</li>
-    <li><strong>Посилання:</strong>
-      <ul>
-        <li><a href="https://www.youtube.com/watch?v=video_id1">video_id1</a></li>
-        <li><a href="https://www.youtube.com/watch?v=video_id2">video_id2</a></li>
-      </ul>
-    </li>
+    <li>Самостійний аналіз ніш — швидко отримуйте список найгарячіших тем;</li>
+    <li>Дослідження для клієнтів — надавайте data-driven рекомендації з контент-плану;</li>
+    <li>Інспірація для створення матеріалів — тренди як основа для власних відео;</li>
+    <li>SEO-оптимізація — підбір ключових слів і тегів із високим потенціалом залучення.</li>
   </ul>
 
+  <h2>Інтеграційні можливості</h2>
+  <ul>
+    <li>Месенджери: Telegram, Facebook Messenger тощо для миттєвих звітів;</li>
+    <li>Автоматична генерація контенту: зв’язка з AI-моделями для створення сценаріїв і описів;</li>
+    <li>CRM і Project-менеджмент: відправка результатів аналізу в Slack, Notion, Trello.</li>
+  </ul>
+
+  <h2>Чому обирають саме цей воркфлоу</h2>
+  <ul>
+    <li><strong>Експертність (Expertise)</strong>: реалізовано за кращими практиками роботи з YouTube Data API й AI-аналітикою;</li>
+    <li><strong>Досвід (Experience)</strong>: протестований на сотнях ніше­вих запитів і забезпечує стабільну точність;</li>
+    <li><strong>Авторитетність (Authoritativeness)</strong>: побудований на перевірених технологіях n8n і GPT-моделях від OpenAI;</li>
+    <li><strong>Довіра (Trustworthiness)</strong>: прозора обробка даних, збереження конфіденційності API-ключів і гарантія швидких оновлень.</li>
+  </ul>
+
+  <h2>Приклади результатів</h2>
+  <p><strong>Ніша “digital marketing”:</strong></p>
+  <ul>
+    <li>Трендові теми: «psychological marketing», «conversion triggers»;</li>
+    <li>Теги: SEO, social proof, email funnels;</li>
+    <li>Примітні відео з &gt;200 000 переглядів і високим співвідношенням лайків до переглядів;</li>
+    <li>Посилання на відео для негайного перегляду й натхнення.</li>
+  </ul>
 </body>
   
   
