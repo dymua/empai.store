@@ -1,0 +1,43 @@
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/style.css" rel="stylesheet" />
+<script type="module">
+	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/chat.bundle.es.js';
+
+	/*  createChat({
+		webhookUrl: 'https://n8n.empai.store/webhook/f6a9b428-4b4f-4ed4-b043-dbae030ce8ce/chat'
+	});
+ 	*/
+
+	createChat({
+	webhookUrl: 'https://n8n.empai.store/webhook/f6a9b428-4b4f-4ed4-b043-dbae030ce8ce/chat',
+	webhookConfig: {
+		method: 'POST',
+		headers: {}
+	},
+	target: '#n8n-chat',
+	mode: 'fullscreen',
+	chatInputKey: 'chatInput',
+	chatSessionKey: 'sessionId',
+	metadata: {},
+	showWelcomeScreen: false,
+	defaultLanguage: 'uk',
+	initialMessages: [
+		'Привіт 👋',
+		'Чим можу допомогти?'
+	],
+	i18n: {
+		uk: {
+			title: 'Аудитор Кібербезпеки ОКІ в Україні',
+			subtitle: "консультація з кібербезпеки",
+			footer: 'Працюю цілодобово 24/7.',
+			getStarted: 'нова бесіда',
+			inputPlaceholder: 'Напиши своє питання..',
+		},
+	},
+});
+</script>
+</head>
+<body>
+</body>
+</html>
