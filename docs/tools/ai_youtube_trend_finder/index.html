@@ -5,12 +5,12 @@
 	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/chat.bundle.es.js';
 
 	/*  createChat({
-		webhookUrl: 'https://n8n.empai.store/webhook/f6a9b428-4b4f-4ed4-b043-dbae030ce8ce/chat'
+		webhookUrl: 'https://n8n.empai.store/webhook/ff9622a4-a6ec-4396-b9de-c95bd834c23c/chat'
 	});
  	*/
 
 	createChat({
-	webhookUrl: 'https://n8n.empai.store/webhook/f6a9b428-4b4f-4ed4-b043-dbae030ce8ce/chat',
+	webhookUrl: 'https://n8n.empai.store/webhook/ff9622a4-a6ec-4396-b9de-c95bd834c23c/chat',
 	webhookConfig: {
 		method: 'POST',
 		headers: {}
@@ -23,16 +23,16 @@
 	showWelcomeScreen: false,
 	defaultLanguage: 'uk',
 	initialMessages: [
-		'Привіт 👋',
-		'Чим можу допомогти?'
+		'Привіт ШІ ассистент по пошуку трендових відео в YouTube 👋',
+		'Вкажи нішу або ключові слова. Я знайду та проаналізую трендові відео на YouTube за останні 7 днів.'
 	],
 	i18n: {
 		uk: {
-			title: 'Аудитор Кібербезпеки ОКІ в Україні',
-			subtitle: "консультація з кібербезпеки",
+			title: 'Youtube Trend Finder Based On Niche',
+			subtitle: "Пошук популярних та трендових відео в ніші за 7 днів.",
 			footer: 'Працюю цілодобово 24/7.',
 			getStarted: 'нова бесіда',
-			inputPlaceholder: 'Напиши своє питання..',
+			inputPlaceholder: 'Вкажи нішу або ключові слова. Я знайду та проаналізую трендові відео на YouTube за останні 7 днів.',
 		},
 	},
 });
@@ -40,22 +40,19 @@
 </head>
   
 <body>
-<h1>Асистент сервіс n8n openai</h1>
-<h2>Аудитор Кібербезпеки ОКІ в Україні</h2>
+<h1>Youtube Trend Finder Based On Niche</h1>
+<h2>ШІ ассистент по пошуку трендових відео в YouTube</h2>
 <p>Варіанти роботи Embeded Chat та Hosted Chat</p>
 
 <h4>Embeded Chat</h4>
 <p>Працює на сторі браузера та звертається до сервісу  CDN  з JS кодом чату, який направляє запити до сервісу N8N.</p>
 
-<p>Режими роботи вигляді чату на <a href='index.html' target="_blank" >сторінці</a> або в <a href='fullscreen.html' target="_blank" >повноекраному режимі</a>.</p>
+<h4>Embeded Chat</h4>
+<p>Працює на сторі браузера  <a href='fullscreen.html' target="_blank" > dповноекраному режимі</a>.</p>
 
-<h4>Hosted Chat</h4>
-<p>Працює на стороні серверу N8N. 
-<a href='https://n8n.empai.store/webhook/5e9ea2a5-4138-43ec-8e00-5e311cef6668/chat' target="_blank">Приклад роботи</a></p>
-
-<hr/>
-<p>Налаштування та кастомізація чату  <a href='https://www.npmjs.com/package/@n8n/chat'>https://www.npmjs.com/package/@n8n/chat</a></p>
-	
+Варіанти інтеграції
+- мессенждери
+- автоматична генерація контенту	
 </body>
   
   
