@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Doc Bot Горизонт</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat@1.40.2/dist/style.css" rel="stylesheet">
+<style>
+/* Layout: ліворуч — що вміє бот і з чого почати; праворуч — сам чат на всю висоту. На телефоні — одна колонка. */
+:root{
+  --navy:#13294B;      /* синій «Горизонт» */
+  --amber:#F2A541;     /* бурштиновий «Світанок» */
+  --red:#D1495B;
+  --bg:#F5F7FA;
+  --surface:#FFFFFF;
+  --fg:#1B2433;
+  --muted:#5B6B82;
+  --line:#DCE2EA;
+  --chip:#EAF0F7;
+  --display:"Commissioner", "Segoe UI", Arial, sans-serif;
+  --body:"Commissioner", "Segoe UI", Arial, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme:light;
+
+  /* n8n chat */
+  --chat--color--primary:var(--navy);
+  --chat--color--primary-shade-50:#0F2240;
+  --chat--color--primary--shade-100:#0B1A33;
+  --chat--color--secondary:var(--amber);
+  --chat--color-secondary-shade-50:#E0932F;
+  --chat--color-white:var(--surface);
+  --chat--color-light:var(--bg);
+  --chat--color-light-shade-50:var(--line);
+  --chat--color-light-shade-100:#C2CAD6;
+  --chat--color-medium:#D2D8E1;
+  --chat--color-dark:var(--navy);
+  --chat--color-typing:var(--muted);
+  --chat--font-family:var(--body);
+  --chat--border-radius:10px;
+  --chat--header--background:var(--navy);
+  --chat--header--color:#fff;
+  --chat--header--padding:14px 18px;
+  --chat--subtitle--line-height:1.4;
+  --chat--heading--font-size:1.25rem;
+  --chat--subtitle--font-size:.9rem;
+  --chat--message--font-size:.95rem;
+  --chat--message--bot--background:var(--surface);
+  --chat--message--bot--color:var(--fg);
+  --chat--message--user--background:var(--navy);
+  --chat--message--user--color:#fff;
+  --chat--body--background:var(--bg);
+  --chat--footer--background:var(--surface);
+  --chat--input--background:var(--surface);
+  --chat--input--text-color:var(--fg);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0E1622; --surface:#16212F; --fg:#E6ECF4; --muted:#9AA8BB; --line:#26354A; --chip:#1D2B3D;
+    --chat--color-light-shade-100:#33445C; --chat--color-medium:#2A3A50;
+    --chat--message--user--background:#2B4A78;
+    color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--bg); color:var(--fg); font:16px/1.55 var(--body);
+  padding-block:max(28px, env(safe-area-inset-top,0px)) max(28px, env(safe-area-inset-bottom,0px));
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+.wrap{max-width:1180px; margin:0 auto; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); gap:40px; align-items:start}
+@media (max-width:900px){ .wrap{grid-template-columns:minmax(0,1fr); gap:28px} }
+
+.brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.02em; color:var(--navy)}
+@media (prefers-color-scheme:dark){ .brand{color:var(--fg)} }
+.brand svg{flex:none}
+.brand small{font:500 .72rem/1 var(--mono); color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-left:4px}
+
+h1{font:800 clamp(2rem,4.4vw,3.1rem)/1.08 var(--display); letter-spacing:-.02em; margin:28px 0 14px; text-wrap:balance}
+h1 em{font-style:normal; background:linear-gradient(transparent 62%, color-mix(in srgb, var(--amber) 55%, transparent) 62%)}
+.lead{font-size:1.08rem; color:var(--muted); max-width:34em; margin:0}
+
+h2{font:700 .78rem/1 var(--mono); text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin:36px 0 14px}
+
+.steps{list-style:none; padding:0; margin:0; display:grid; gap:12px; counter-reset:s}
+.steps li{display:grid; grid-template-columns:34px minmax(0,1fr); gap:12px; align-items:start; counter-increment:s}
+.steps li::before{content:counter(s); width:34px; height:34px; border-radius:50%; display:grid; place-items:center;
+  font:600 .9rem/1 var(--mono); background:var(--chip); color:var(--fg); border:1px solid var(--line)}
+.steps b{display:block; font-weight:600}
+.steps span{color:var(--muted); font-size:.95rem}
+
+.prompts{display:grid; gap:8px}
+.prompt{all:unset; cursor:pointer; display:flex; justify-content:space-between; gap:12px; align-items:center;
+  padding:11px 14px; border-radius:10px; background:var(--surface); border:1px solid var(--line); font-size:.95rem; line-height:1.4}
+.prompt:hover{border-color:var(--amber)}
+.prompt:focus-visible{outline:2px solid var(--amber); outline-offset:2px}
+.prompt .act{font:500 .72rem/1 var(--mono); color:var(--muted); white-space:nowrap}
+.prompt.done .act{color:var(--navy)}
+@media (prefers-color-scheme:dark){ .prompt.done .act{color:var(--amber)} }
+
+.note{margin-top:28px; padding:14px 16px; border-left:3px solid var(--amber); background:var(--surface); border-radius:0 10px 10px 0; font-size:.92rem}
+.note ul{margin:6px 0 0; padding-left:18px}
+.note li{margin:3px 0}
+.note b{font-weight:600}
+
+.chat-col{position:sticky; top:max(20px, env(safe-area-inset-top,0px))}
+@media (max-width:900px){ .chat-col{position:static} }
+.chat-frame{height:min(720px, calc(100vh - 56px)); min-height:520px; border-radius:16px; overflow:hidden; border:1px solid var(--line);
+  box-shadow:0 18px 40px -24px rgba(19,41,75,.45); background:var(--surface)}
+#n8n-chat{height:100%}
+.chat-hint{font:500 .75rem/1.4 var(--mono); color:var(--muted); margin-top:10px}
+.offline{display:none; padding:24px; color:var(--muted)}
+.offline b{color:var(--fg)}
+
+footer{max-width:1180px; margin:44px auto 0; font:500 .75rem/1.4 var(--mono); color:var(--muted)}
+@media (prefers-reduced-motion:reduce){ *{transition:none!important; animation:none!important} }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <main>
+    <div class="brand">
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
+        <circle cx="14" cy="17" r="8" fill="#F2A541"/>
+        <rect x="2" y="17" width="24" height="9" fill="currentColor"/>
+        <rect x="2" y="16" width="24" height="2" fill="currentColor"/>
+      </svg>
+      Горизонт Груп <small>Doc Bot · навчальне демо</small>
+    </div>
+
+    <h1>Потрібен документ? <em>Напишіть боту.</em></h1>
+    <p class="lead">Бот знає шаблони компанії: заяви, акти, договори. Він запитає потрібні дані, покаже, що вийшло, і після вашого «так» створить готовий документ у Google Docs, PDF і Word.</p>
+
+    <h2>Як це працює</h2>
+    <ol class="steps">
+      <li><div><b>Скажіть, що потрібно</b><span>Звичайними словами: «заява на відпустку», «акт для клієнта».</span></div></li>
+      <li><div><b>Дайте відповіді на питання</b><span>Бот питає по 2–3 поля за раз — лише те, що є в шаблоні.</span></div></li>
+      <li><div><b>Підтвердіть зведення</b><span>Перевірте дані. Якщо щось не так — просто напишіть, що змінити.</span></div></li>
+      <li><div><b>Заберіть документ</b><span>Три посилання: відкрити в Google Docs, завантажити PDF, завантажити DOCX.</span></div></li>
+    </ol>
+
+    <h2>Спробуйте почати з цього</h2>
+    <div class="prompts" id="prompts">
+      <button class="prompt" type="button" id="p1"><span>Які шаблони документів у тебе є?</span><span class="act">копіювати</span></button>
+      <button class="prompt" type="button" id="p2"><span>Потрібна заява на відпустку на 10 днів з 24.11</span><span class="act">копіювати</span></button>
+      <button class="prompt" type="button" id="p3"><span>Зроби акт виконаних робіт для ТОВ «Едельвейс»</span><span class="act">копіювати</span></button>
+      <button class="prompt" type="button" id="p4"><span>Дай порожній шаблон акта, заповню сам</span><span class="act">копіювати</span></button>
+    </div>
+
+    <div class="note">
+      <b>Перед тестом</b>
+      <ul>
+        <li>Використовуйте <b>вигадані</b> імена, компанії й дати — це навчальний стенд.</li>
+        <li>Готовий документ відкривається <b>всім, хто має посилання</b>.</li>
+        <li>Бот може помилитися: перевірте документ, перш ніж ним користуватися.</li>
+        <li>Щоб почати з чистого аркуша, відкрийте сторінку в новій вкладці інкогніто.</li>
+      </ul>
+    </div>
+  </main>
+
+  <aside class="chat-col" aria-label="Чат з Doc Bot">
+    <div class="chat-frame">
+      <div id="n8n-chat"></div>
+      <div class="offline" id="offline"><b>Чат зараз недоступний.</b><br>Спробуйте за кілька хвилин або скажіть тренеру.</div>
+    </div>
+    <div class="chat-hint">Ваша розмова зберігається лише в цьому браузері.</div>
+  </aside>
+</div>
+
+<footer>Навчальне демо DAN.IT для «Горизонт Груп» · n8n + AI-агент · шаблони з каталогу Google Sheets</footer>
+
+<script>
+  // Підказки: клік копіює текст, який можна вставити в чат
+  document.querySelectorAll('.prompt').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.querySelector('span').textContent;
+      var mark = function () {
+        document.querySelectorAll('.prompt').forEach(function (b) { b.classList.remove('done'); b.querySelector('.act').textContent = 'копіювати'; });
+        btn.classList.add('done'); btn.querySelector('.act').textContent = 'скопійовано — вставте в чат';
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(mark, function () { mark(); });
+      } else { mark(); }
+      var input = document.querySelector('#n8n-chat textarea');
+      if (input) { input.value = text; input.dispatchEvent(new Event('input', { bubbles: true })); input.focus(); }
+    });
+  });
+</script>
+
+<script type="module">
+  // ===== НАЛАШТУВАННЯ: вставте сюди Chat URL з ноди «Чат» (Chat Trigger) =====
+  const WEBHOOK_URL = 'https://danit-n8n.duckdns.org/webhook/4de546c3-8bdc-4044-91cf-532239583b04/chat';
+  // ==========================================================================
+
+  try {
+    const { createChat } = await import('https://cdn.jsdelivr.net/npm/@n8n/chat@1.40.2/dist/chat.bundle.es.js');
+    createChat({
+      webhookUrl: WEBHOOK_URL,
+      target: '#n8n-chat',
+      mode: 'fullscreen',
+      loadPreviousSession: true,
+      showWelcomeScreen: false,
+      defaultLanguage: 'en',
+      initialMessages: [
+        'Вітаю! Я Doc Bot «Горизонт Груп».',
+        'Скажіть, який документ потрібен, — і я допоможу його заповнити.'
+      ],
+      i18n: {
+        en: {
+          title: 'Doc Bot',
+          subtitle: 'Документи з шаблонів компанії',
+          footer: '',
+          getStarted: 'Нова розмова',
+          inputPlaceholder: 'Напишіть, який документ потрібен…'
+        }
+      }
+    });
+  } catch (e) {
+    document.getElementById('n8n-chat').style.display = 'none';
+    document.getElementById('offline').style.display = 'block';
+  }
+</script>
+</body>
+</html>
