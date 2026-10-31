@@ -25,9 +25,10 @@ h1{font-size:44px;line-height:1.1;margin:0 0 12px}h1 span{color:var(--acc)}
 section{padding:44px 0}h2{font-size:30px;margin:0 0 20px}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
-.card h3{margin:6px 0 6px;font-size:18px}.card p{margin:0;color:var(--mut)}
+.card h3{margin:6px 0 6px;font-size:18px}.g4 .card{display:flex;flex-direction:column}.g4 .card .tag{align-self:flex-start}.card p{margin:0;color:var(--mut)}
 .num{display:inline-flex;width:34px;height:34px;border-radius:50%;background:var(--acc);color:#130729;font-weight:800;align-items:center;justify-content:center}
 .price{font-size:28px;font-weight:800;margin:8px 0 2px}.price small{font-size:15px;color:var(--mut);font-weight:500}
+.g4{grid-template-columns:repeat(4,1fr)}.req{font-weight:700;color:var(--acc);margin:2px 0 6px}.tag.free{background:var(--acc)}.tag.pop{background:#3a2f78;color:var(--txt)}
 .tag{display:inline-block;font-size:12px;background:var(--yel);color:#1b0f38;padding:2px 10px;border-radius:999px;font-weight:700}
 details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:0 0 10px}
 summary{cursor:pointer;font-weight:600}details p{color:var(--mut);margin:10px 0 0}
@@ -35,7 +36,8 @@ footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--mut);fon
 footer nav{display:flex;flex-wrap:wrap;gap:16px;margin:0 0 12px}
 .doc{max-width:820px;padding:36px 16px 20px}.doc h1{font-size:34px}.doc h2{font-size:21px;margin:28px 0 8px}
 .doc p,.doc li{color:#dcd8f2}.doc ul{padding-left:22px}.muted{color:var(--mut)}
-@media (max-width:820px){.hero .wrap,.grid{grid-template-columns:1fr}h1{font-size:34px}.hero img{max-width:260px}}
+@media (max-width:1000px){.g4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:820px){.hero .wrap,.grid,.g4{grid-template-columns:1fr}h1{font-size:34px}.hero img{max-width:260px}}
 </style></head><body>
 <header class="top"><div class="wrap"><a class="logo" href="../"><img src="../img/owl.png" alt="">Poli.Guru</a><a class="btn sm" href="https://t.me/poli_guru_bot">Відкрити бот</a></div></header>
 <main class="wrap doc"><h1>Політика конфіденційності</h1><p>Ця Політика пояснює, які дані збирає сервіс Poli.Guru (Telegram-бот @poli_guru_bot і сайт poliguru.pp.ua), навіщо, як довго зберігає та як ви можете ними керувати. Редакція від 01.11.2026.</p>
@@ -67,4 +69,4 @@ footer nav{display:flex;flex-wrap:wrap;gap:16px;margin:0 0 12px}
 <h2>11. Контакти</h2>
 <p>ФОП Войтишин Дмитро Валентинович. Підтримка: бот @poli_guru_bot, команда /support. Сайт: poliguru.pp.ua.</p></main>
 <footer><div class="wrap"><nav><a href="../privacy/">Політика конфіденційності</a><a href="../offer/">Публічна оферта</a><a href="../offer/#refund">Повернення коштів</a><a href="../offer/#payment">Безпека платежів</a><a href="https://t.me/poli_guru_bot">Telegram-бот</a></nav>
-<div>© 2026 Poli.Guru · ФОП Войтишин Дмитро Валентинович · Підтримка: <a href="https://t.me/poli_guru_bot">@poli_guru_bot</a> → /support</div></div></footer></body></html>
+<div style="margin:0 0 8px">ℹ️ Відповіді Poli.Guru генерує штучний інтелект — вони можуть містити помилки. Перевіряйте кроки розв’язку.</div><div>© 2026 Poli.Guru · ФОП Войтишин Дмитро Валентинович · Підтримка: <a href="https://t.me/poli_guru_bot">@poli_guru_bot</a> → /support</div></div></footer></body></html>
