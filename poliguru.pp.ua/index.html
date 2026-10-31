@@ -25,9 +25,10 @@ h1{font-size:44px;line-height:1.1;margin:0 0 12px}h1 span{color:var(--acc)}
 section{padding:44px 0}h2{font-size:30px;margin:0 0 20px}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
-.card h3{margin:6px 0 6px;font-size:18px}.card p{margin:0;color:var(--mut)}
+.card h3{margin:6px 0 6px;font-size:18px}.g4 .card{display:flex;flex-direction:column}.g4 .card .tag{align-self:flex-start}.card p{margin:0;color:var(--mut)}
 .num{display:inline-flex;width:34px;height:34px;border-radius:50%;background:var(--acc);color:#130729;font-weight:800;align-items:center;justify-content:center}
 .price{font-size:28px;font-weight:800;margin:8px 0 2px}.price small{font-size:15px;color:var(--mut);font-weight:500}
+.g4{grid-template-columns:repeat(4,1fr)}.tag.free{background:var(--acc)}
 .tag{display:inline-block;font-size:12px;background:var(--yel);color:#1b0f38;padding:2px 10px;border-radius:999px;font-weight:700}
 details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:0 0 10px}
 summary{cursor:pointer;font-weight:600}details p{color:var(--mut);margin:10px 0 0}
@@ -35,7 +36,8 @@ footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--mut);fon
 footer nav{display:flex;flex-wrap:wrap;gap:16px;margin:0 0 12px}
 .doc{max-width:820px;padding:36px 16px 20px}.doc h1{font-size:34px}.doc h2{font-size:21px;margin:28px 0 8px}
 .doc p,.doc li{color:#dcd8f2}.doc ul{padding-left:22px}.muted{color:var(--mut)}
-@media (max-width:820px){.hero .wrap,.grid{grid-template-columns:1fr}h1{font-size:34px}.hero img{max-width:260px}}
+@media (max-width:1000px){.g4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:820px){.hero .wrap,.grid,.g4{grid-template-columns:1fr}h1{font-size:34px}.hero img{max-width:260px}}
 </style></head><body>
 <header class="top"><div class="wrap"><a class="logo" href="./"><img src="img/owl.png" alt="">Poli.Guru</a><a class="btn sm" href="https://t.me/poli_guru_bot">Відкрити бот</a></div></header>
 
@@ -57,11 +59,12 @@ footer nav{display:flex;flex-wrap:wrap;gap:16px;margin:0 0 12px}
 <div class="card"><h3>👨‍👩‍👧 Для батьків</h3><p>Прогрес дитини і звіти. Оплата з телефону за посиланням від дитини.</p></div>
 <div class="card"><h3>🛡 Безпечно</h3><p>Лише навчання. Батьки бачать статистику, а не текст переписки.</p></div>
 </div></div></section>
-<section id="prices"><div class="wrap"><h2>Тарифи</h2><div class="grid">
+<section id="prices"><div class="wrap"><h2>Тарифи</h2><div class="grid g4">
+<div class="card"><span class="tag free">Старт</span><h3>Безкоштовно</h3><div class="price">0 грн</div><p>3 дні повного доступу, далі 5 запитів на день · 1 фото · 1 тест НМТ</p></div>
 <div class="card"><h3>Учень</h3><div class="price">149 грн <small>/ 30 днів</small></div><p>або 300 ⭐ · до 50 запитів на день</p></div>
 <div class="card"><span class="tag">Вигідно</span><h3>Сім’я</h3><div class="price">299 грн <small>/ 30 днів</small></div><p>або 600 ⭐ · до 3 дітей</p></div>
 <div class="card"><h3>Рік</h3><div class="price">1 190 грн <small>/ 365 днів</small></div><p>або 2 200 ⭐ · −33 % до місячного</p></div>
-</div><p class="muted">НМТ-сезон — 599 грн до 30 червня (продаж з 1 січня). Безкоштовно: 3 дні повного доступу, далі 5 запитів на день. Оплата разова: картка, Apple Pay, Google Pay (WayForPay) або Telegram Stars.</p>
+</div><p class="muted">НМТ-сезон — 599 грн / 1 100 ⭐ до 30 червня (продаж з 1 січня). Оплата разова, без автосписань: картка, Apple Pay, Google Pay (WayForPay) або Telegram Stars.</p>
 <a class="btn" href="https://t.me/poli_guru_bot">Почати в Telegram</a></div></section>
 <section id="faq"><div class="wrap"><h2>Питання</h2>
 <details><summary>Це не просто «решебник»?</summary><p>Ні. Poli пояснює, як дійти до відповіді, і дає схожу задачу для закріплення.</p></details>
