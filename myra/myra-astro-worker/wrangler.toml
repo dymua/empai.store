@@ -1,0 +1,6 @@
+name = "myra-astro"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+# Власний домен (зона empai.store має бути в Cloudflare). Розкоментуйте після першого deploy:
+# routes = [ { pattern = "astro.myra.empai.store", custom_domain = true } ]
