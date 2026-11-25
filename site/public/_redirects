@@ -1,0 +1,11 @@
+# Старі адреси → нові (301). Cloudflare Pages читає цей файл з out/.
+/offer_agreement.html   /legal/offer/     301
+/privacy_policy.html    /legal/privacy/   301
+/payment_policy.html    /legal/payment/   301
+/index.html             /                 301
+/app                    /apps/            301
+/app/                   /apps/            301
+/chat                   https://agents.empai.store  302
+/chat/                  https://agents.empai.store  302
+/plugins                /team/            301
+/plugins/*              /team/            301

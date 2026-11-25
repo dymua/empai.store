@@ -1,0 +1,209 @@
+# Sveltia CMS — конфігурація. Документація: https://github.com/sveltia/sveltia-cms
+backend:
+  name: github
+  repo: dymua/empai.store
+  branch: master
+  # OAuth-проксі для входу через GitHub (Cloudflare Worker sveltia-cms-auth).
+  # Замініть адресу після розгортання воркера. Без нього можна входити з токеном (Personal Access Token).
+  base_url: https://sveltia-cms-auth.CHANGE-ME.workers.dev
+
+site_url: https://empai.store
+locale: uk
+media_folder: site/public/images/uploads
+public_folder: /images/uploads
+
+# Спільні поля для каталогу (team / apps / mcp)
+x-item-fields: &item_fields
+  - { label: "Назва", name: title, widget: string }
+  - { label: "Короткий опис", name: summary, widget: text }
+  - label: "Іконка"
+    name: icon
+    widget: select
+    required: false
+    options: [users, user-search, gavel, calculator, chart-line, app-window, plug, puzzle, sparkles]
+  - { label: "Статус", name: status, widget: select, options: [{ label: "Доступно", value: ready }, { label: "Бета", value: beta }, { label: "Скоро", value: soon }], default: soon }
+  - { label: "Порядок", name: order, widget: number, default: 100, value_type: int }
+  - { label: "Чернетка (сховати)", name: draft, widget: boolean, default: false, required: false }
+  - { label: "Платформи", name: platforms, widget: list, required: false }
+  - { label: "Галузі", name: industries, widget: list, required: false }
+  - { label: "Мінімальний рівень", name: tier, widget: select, options: [Free, Starter, Pro, Business], required: false }
+  - { label: "Що робить", name: features, widget: list, required: false }
+  - label: "Процеси за розкладом"
+    name: processes
+    widget: list
+    required: false
+    fields:
+      - { label: "Процес", name: name, widget: string }
+      - { label: "Частота", name: freq, widget: string, required: false }
+  - { label: "Конектори", name: connectors, widget: list, required: false }
+  - { label: "Кроки встановлення", name: install, widget: list, required: false }
+  - label: "FAQ"
+    name: faq
+    widget: list
+    required: false
+    fields:
+      - { label: "Питання", name: q, widget: string }
+      - { label: "Відповідь", name: a, widget: text }
+  - { label: "Кнопка: текст", name: cta_label, widget: string, required: false }
+  - { label: "Кнопка: посилання", name: cta_url, widget: string, required: false }
+  - { label: "SEO title", name: seo_title, widget: string, required: false }
+  - { label: "SEO description", name: seo_description, widget: text, required: false }
+  - { label: "Опис (Markdown)", name: body, widget: markdown, required: false }
+
+collections:
+  - name: team
+    label: "Спеціалісти"
+    label_singular: "Спеціаліст"
+    folder: site/content/team
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: [order, title]
+    fields: *item_fields
+  - name: apps
+    label: "Додатки"
+    label_singular: "Додаток"
+    folder: site/content/apps
+    create: true
+    slug: "{{slug}}"
+    fields: *item_fields
+  - name: mcp
+    label: "MCP-сервіси"
+    label_singular: "MCP-сервіс"
+    folder: site/content/mcp
+    create: true
+    slug: "{{slug}}"
+    fields: *item_fields
+  - name: legal
+    label: "Юридичні документи"
+    folder: site/content/legal
+    create: true
+    fields:
+      - { label: "Назва", name: title, widget: string }
+      - { label: "Оновлено", name: updated, widget: string, required: false }
+      - { label: "Текст", name: body, widget: markdown }
+  - name: pages
+    label: "Сторінки та налаштування"
+    files:
+      - name: settings
+        label: "Налаштування сайту"
+        file: site/content/settings.json
+        fields:
+          - { label: "Назва", name: site_name, widget: string }
+          - { label: "URL сайту", name: site_url, widget: string }
+          - { label: "Слоган", name: tagline, widget: string }
+          - { label: "Опис (SEO)", name: description, widget: text }
+          - { label: "Email", name: email, widget: string }
+          - { label: "Telegram-канал", name: telegram_channel, widget: string, required: false }
+          - { label: "Telegram-бот", name: telegram_bot, widget: string, required: false }
+          - { label: "Чат агентів", name: agents_url, widget: string }
+          - { label: "Посилання на аудит", name: audit_url, widget: string }
+          - { label: "Локація", name: location, widget: string }
+          - label: "Меню"
+            name: nav
+            widget: list
+            fields:
+              - { label: "Текст", name: label, widget: string }
+              - { label: "Посилання", name: href, widget: string }
+      - name: home
+        label: "Головна"
+        file: site/content/home.json
+        fields:
+          - label: "Hero"
+            name: hero
+            widget: object
+            fields:
+              - { label: "Надзаголовок", name: eyebrow, widget: string }
+              - { label: "Заголовок", name: title, widget: string }
+              - { label: "Слова, що змінюються", name: rotate, widget: list }
+              - { label: "Підзаголовок", name: subtitle, widget: text }
+              - { label: "Кнопка 1: текст", name: primary_label, widget: string }
+              - { label: "Кнопка 1: посилання", name: primary_url, widget: string }
+              - { label: "Кнопка 2: текст", name: secondary_label, widget: string }
+              - { label: "Кнопка 2: посилання", name: secondary_url, widget: string }
+          - label: "Цифри"
+            name: stats
+            widget: list
+            fields:
+              - { label: "Число", name: value, widget: number, value_type: int }
+              - { label: "Суфікс", name: suffix, widget: string, required: false }
+              - { label: "Підпис", name: label, widget: string }
+          - { label: "Напрямки: надзаголовок", name: directions_eyebrow, widget: string, required: false }
+          - { label: "Напрямки: заголовок", name: directions_title, widget: string }
+          - { label: "Напрямки: підзаголовок", name: directions_subtitle, widget: text, required: false }
+          - label: "Напрямки"
+            name: directions
+            widget: list
+            fields:
+              - { label: "Назва", name: title, widget: string }
+              - { label: "Текст", name: text, widget: text }
+              - { label: "Посилання", name: href, widget: string }
+              - { label: "Іконка", name: icon, widget: string }
+          - { label: "Спеціалісти: надзаголовок", name: team_eyebrow, widget: string, required: false }
+          - { label: "Спеціалісти: заголовок", name: team_title, widget: string }
+          - { label: "Спеціалісти: підзаголовок", name: team_subtitle, widget: text, required: false }
+          - { label: "Як працює: надзаголовок", name: how_eyebrow, widget: string, required: false }
+          - { label: "Як працює: заголовок", name: how_title, widget: string }
+          - { label: "Як працює: підзаголовок", name: how_subtitle, widget: text, required: false }
+          - { label: "Як працює", name: how, widget: list, fields: [{ label: "Крок", name: title, widget: string }, { label: "Текст", name: text, widget: text }] }
+          - { label: "Конструктор: надзаголовок", name: lego_eyebrow, widget: string, required: false }
+          - { label: "Конструктор: заголовок", name: lego_title, widget: string }
+          - { label: "Конструктор: текст", name: lego_text, widget: text }
+          - { label: "Кубики", name: lego, widget: list, fields: [{ label: "Назва", name: title, widget: string }, { label: "Текст", name: text, widget: text }] }
+          - { label: "Переваги: надзаголовок", name: why_eyebrow, widget: string, required: false }
+          - { label: "Переваги: заголовок", name: why_title, widget: string }
+          - { label: "Переваги: підзаголовок", name: why_subtitle, widget: text, required: false }
+          - { label: "Переваги", name: why, widget: list, fields: [{ label: "Назва", name: title, widget: string }, { label: "Текст", name: text, widget: text }, { label: "Іконка", name: icon, widget: string, required: false }] }
+          - { label: "CTA: заголовок", name: cta_title, widget: string }
+          - { label: "CTA: текст", name: cta_text, widget: text }
+      - name: pricing
+        label: "Ціни"
+        file: site/content/pricing.json
+        fields:
+          - { label: "Заголовок", name: title, widget: string }
+          - { label: "Підзаголовок", name: subtitle, widget: text }
+          - { label: "Примітка", name: note, widget: string, required: false }
+          - { label: "Річна оплата", name: annual_note, widget: string, required: false }
+          - label: "Рівні"
+            name: tiers
+            widget: list
+            fields:
+              - { label: "Назва", name: name, widget: string }
+              - { label: "Ціна, ₴", name: price_uah, widget: string }
+              - { label: "Ціна, €", name: price_eur, widget: string }
+              - { label: "Період", name: period, widget: string, required: false }
+              - { label: "Опис", name: description, widget: text }
+              - { label: "Можливості", name: features, widget: list }
+              - { label: "Кнопка: текст", name: cta_label, widget: string }
+              - { label: "Кнопка: посилання", name: cta_url, widget: string }
+              - { label: "Для кого", name: for_whom, widget: string, required: false }
+              - { label: "Виділити", name: highlight, widget: boolean, required: false }
+              - { label: "Скоро", name: soon, widget: boolean, required: false }
+          - label: "Порівняння (таблиця)"
+            name: compare
+            widget: list
+            fields:
+              - { label: "Група", name: group, widget: string }
+              - label: "Рядки"
+                name: rows
+                widget: list
+                fields:
+                  - { label: "Параметр", name: label, widget: string }
+                  - { label: "Пояснення", name: hint, widget: string, required: false }
+                  - { label: "Значення (Free, Starter, Pro, Business; ✓ або —)", name: values, widget: list }
+          - { label: "FAQ", name: faq, widget: list, fields: [{ label: "Питання", name: q, widget: string }, { label: "Відповідь", name: a, widget: text }] }
+      - name: automation
+        label: "AI Automation"
+        file: site/content/automation.json
+        fields:
+          - { label: "Заголовок", name: title, widget: string }
+          - { label: "Підзаголовок", name: subtitle, widget: text }
+          - { label: "Приклади", name: examples, widget: list, fields: [{ label: "Роль", name: role, widget: string }, { label: "Процес", name: process, widget: string }, { label: "Частота", name: freq, widget: string }] }
+          - { label: "Кроки", name: steps, widget: list, fields: [{ label: "Назва", name: title, widget: string }, { label: "Текст", name: text, widget: text }] }
+          - { label: "Business: заголовок", name: business_title, widget: string }
+          - { label: "Business: текст", name: business_text, widget: text }
+      - name: faq
+        label: "FAQ"
+        file: site/content/faq.json
+        fields:
+          - { label: "Заголовок", name: title, widget: string }
+          - { label: "Питання", name: items, widget: list, fields: [{ label: "Питання", name: q, widget: string }, { label: "Відповідь", name: a, widget: text }] }

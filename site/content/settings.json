@@ -1,0 +1,38 @@
+{
+  "site_name": "EmpAI",
+  "site_url": "https://empai.store",
+  "tagline": "AI-спеціалісти, які працюють у вашому середовищі",
+  "description": "EmpAI — AI-спеціалісти для бізнесу: Рекрутер, Тендер, ФОП-бухгалтер, Аналітик. Працюють у Claude, ChatGPT та agents.empai.store.",
+  "email": "service@empai.store",
+  "telegram_channel": "https://t.me/+9RNDjPTtTWY1ZTMy",
+  "telegram_bot": "https://t.me/empai_store_bot",
+  "agents_url": "https://agents.empai.store",
+  "audit_url": "https://agents.empai.store",
+  "location": "Київ, Україна",
+  "nav": [
+    {
+      "label": "Спеціалісти",
+      "href": "/team/"
+    },
+    {
+      "label": "Додатки",
+      "href": "/apps/"
+    },
+    {
+      "label": "MCP",
+      "href": "/mcp/"
+    },
+    {
+      "label": "Автоматизація",
+      "href": "/automation/"
+    },
+    {
+      "label": "Ціни",
+      "href": "/pricing/"
+    },
+    {
+      "label": "FAQ",
+      "href": "/faq/"
+    }
+  ]
+}

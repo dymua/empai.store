@@ -1,0 +1,118 @@
+<html>
+  <body>
+    <h1 style="font-size:16pt; margin:0; font-family:Montserrat, sans-serif;">AI Consulting</h1>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+    <!-- Шрифти + базовий CSS для n8n/chat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
+    <style>
+      /* Тема */
+      :root,
+      #n8n-chat,
+      .chat-window-wrapper {
+        --chat--font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+        /* Палітра */
+        --chat--color-dark: #1c1c28;
+        --chat--color-white: #ffffff;
+        --chat--color-light: #f2f4f8;
+
+        --chat--color-primary: #0063f7;
+        --chat--color-primary-shade-50: #0057da;
+        --chat--color-primary-shade-100: #0049b4;
+        --chat--color-secondary: #20b69e;
+
+        /* Вікно */
+        --chat--window--width: 400px;
+        --chat--window--height: 800px;
+        --chat--window--bottom: 120px;
+        --chat--window--right: 28px;
+
+        /* Хедер */
+        --chat--header--background: #101330;
+        --chat--header--color: var(--chat--color-light);
+        --chat--header--padding: .3rem;
+        --chat--heading--font-size: 1rem; /* компактний */
+      }
+
+      /* Хедер стислий */
+      .chat-header {
+        padding: .3rem .6rem !important;
+        min-height: auto !important;
+        border: 0 !important;
+      }
+      .chat-header .heading {
+        font-size: 1rem !important;
+        line-height: 1.2 !important;
+        margin: 0 !important;
+      }
+      .chat-header .subtitle {
+        display: none !important; /* subtitle приховано */
+      }
+
+      /* Кнопка-тоглер */
+      .chat-toggle {
+        width: 64px !important;
+        height: 64px !important;
+        right: 28px !important;
+        bottom: 120px !important;
+      }
+
+      @media (max-width: 767px) {
+        .chat-toggle {
+          width: 50px !important;
+          height: 50px !important;
+          right: 15px !important;
+          bottom: 120px !important;
+        }
+      }
+    </style>
+
+    <!-- Контейнер -->
+    <div id="n8n-chat"></div>
+
+    <!-- JS -->
+    <script type="module">
+      import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+      createChat({
+        webhookUrl: 'https://n8n.empai.store/webhook/b20f7d6e-7081-4caa-b7a2-d56a4bcbe0d3/chat',
+        webhookConfig: {
+          method: 'POST',
+          headers: {}
+        },
+        target: '#n8n-chat',
+        mode: 'window',
+        chatInputKey: 'chatInput',
+        chatSessionKey: 'sessionId',
+        loadPreviousSession: true,
+        metadata: {},
+        showWelcomeScreen: false,
+        defaultLanguage: 'uk',
+        initialMessages: [
+          'Привіт!',
+          'Я ШІ консультант з вибору товарів. Чим можу допомогти?'
+        ],
+        i18n: {
+          uk: {
+            title: 'ШІ консультант з вибору товарів',
+            subtitle: '',
+            footer: '',
+            getStarted: 'Нова розмова',
+            inputPlaceholder: 'Введіть ваше запитання..',
+          },
+          en: {
+            title: 'Hi there!',
+            subtitle: '',
+            footer: '',
+            getStarted: 'New Conversation',
+            inputPlaceholder: 'Type your question..',
+          },
+        },
+        enableStreaming: false,
+      });
+    </script>
+  </body>
+</html>
